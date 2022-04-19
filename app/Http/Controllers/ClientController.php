@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Country;
+use App\Client;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class CountryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Country  $country
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Country $country)
+    public function show(Client $client)
     {
         //
     }
@@ -52,10 +52,10 @@ class CountryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Country  $country
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Country $country)
+    public function edit(Client $client)
     {
         //
     }
@@ -64,10 +64,10 @@ class CountryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Country  $country
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(Request $request, Client $client)
     {
         //
     }
@@ -75,28 +75,11 @@ class CountryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Country  $country
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy(Client $client)
     {
         //
-    }
-
-    public function list(){
-        //consulto a la BD el listado total de los paises
-        $countries = Country::all();
-        $titulo = "Titulo de prueba";
-        //paso a la vista
-        return view('country.list',compact('countries','titulo'));
-    }
-
-    public function details($country_id){
-        //busca el pais pasando como parametro el ID que viene en la URL
-        $country = Country::findOrFail($country_id);
-        
-
-        return view('country.detail',compact('country'));
-
     }
 }
