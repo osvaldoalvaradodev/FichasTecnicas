@@ -14,5 +14,6 @@ class ClientSeeder extends Seeder
     {
         Client::create(['name'=>'Baladi']);
         Client::create(['name'=>'Patagonia Sea Farms Inc']);
+        Client::create(['name'=>'Zano']);
     }
 }
