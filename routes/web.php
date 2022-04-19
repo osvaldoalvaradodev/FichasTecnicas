@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/countries','CountryController@list');
+Route::get('/countries/{country_id}','CountryController@details');
