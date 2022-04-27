@@ -73,9 +73,26 @@ class CountryController extends Controller
      * @param  \App\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function edit(Country $country)
+    public function edit($country_id)
     {
-        //
+        //consulta en la BD el pais
+        $country = Country::findOrFail($country_id);
+
+        return view('country.edit',compact('country'));
+    }
+
+    public function editProcess($country_id,Request $request){
+            //consulta en la BD el pais
+            $country = Country::findOrFail($country_id);
+
+            $input = $request->all();
+
+            $country->name = $input['name'];
+
+            $country->save();
+
+            return redirect('/countries/'.$country->id);
+
     }
 
     /**
@@ -99,6 +116,17 @@ class CountryController extends Controller
     public function destroy(Country $country)
     {
         //
+    }
+
+    public function delete($country_id){
+        $country = Country::findOrFail($country_id);
+
+        $country->delete();
+
+        return redirect('/countries');
+        //delete con where
+        //Country::where('id','=',$country_id)->delete();
+
     }
 
     public function list(){
