@@ -18,4 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/countries','CountryController@list');
+Route::get('/countries/create','CountryController@create');
+Route::post('/countries/create/process','CountryController@process');
 Route::get('/countries/{country_id}','CountryController@details');

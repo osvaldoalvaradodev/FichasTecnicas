@@ -24,7 +24,25 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        return view('country.create');
+    }
+
+
+    public function process(Request $request){
+        //recibo todos los imput text
+        $input = $request->all();
+        
+        $country = New Country();
+        $country->name = $input['name'];
+        $country->save();
+
+        //guarda el pais al VUELO pero deben estar los atributos
+        //declarados en el modelo (protected $fillable = [])
+        //$country = Country::create($input);
+
+        //retorna al listado pais
+        return redirect('/countries');
+
     }
 
     /**

@@ -3,6 +3,9 @@
 <b>{{$titulo}}</b>
 <br/>
 
+<a href="{{url('/countries/create')}}">Crear Nuevo Pais</a>
+<br/>
+<br/>
 
 @foreach($countries as $country)
     Nombre : {{$country->name}} <br/>
