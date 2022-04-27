@@ -18,9 +18,3 @@
 @endforeach
 
 
-<script>
-
-    console.log("Prueba de pantalla");
-
-    alert("Prueba de mensaje");
-</script>
